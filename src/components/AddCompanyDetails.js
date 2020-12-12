@@ -11,6 +11,13 @@ class AddCompanyDetails extends React.Component {
             errors : '',           
     };this.handleChange = this.handleChange.bind(this) 
 }
+
+componentDidMount(){
+    const CompanyName = (localStorage.getItem('CompanyName'))
+    const email = (localStorage.getItem('email'))
+    this.setState({CompanyName,email})
+}
+
 handleChange( e){       
     const value = e.target.value;        
     this.setState({[e.target.name]:value});
@@ -26,6 +33,8 @@ handleValidation(){
    } else if(!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(this.state.email)){
     alert("must a valid email")
    }else{
+    localStorage.setItem('CompanyName',this.state.CompanyName)
+    localStorage.setItem('email',this.state.email) 
    return true
 }}
 
@@ -33,8 +42,8 @@ render(){
     return (
         <div>
             {/* comapanyName */}
-            <div class="form-group">
-                
+            <div class="form-group" >
+            <label >Company Name</label>    
             <input type="text" class="form-control" placeholder="Company Name"
             onChange={this.handleChange}
             value={this.state.CompanyName}
@@ -42,7 +51,8 @@ render(){
             />
            </div>
            {/* email */}
-           <div class="form-group">                
+           <div class="form-group"> 
+             <label> Email ID</label>              
             <input type="email" class="form-control" placeholder="Email Id"
             onChange={this.handleChange}
             value={this.state.email}
@@ -51,12 +61,13 @@ render(){
            </div>
            {/* jobtitle */}
            <div class="form-group">
-                
+           <label> Job Title</label>   
             <input type="text" class="form-control" placeholder="Job Title"/>
            </div>
            {/* description */}
-            <div class="form-group">                
-                <textarea class="form-control" rows="5"  placeholder="Job Description"></textarea>
+            <div class="form-group">  
+            <label>Job Description</label>              
+                <input class="form-control"   placeholder="Job Description" />
             </div>
            {/* i accept  */}
             <div class="form-group form-check">

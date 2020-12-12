@@ -1,12 +1,31 @@
 .App {
   margin: auto;
-  width: 50%;
-  text-align: center;
-  padding: 10px;
+  width: 20%;
+  /* text-align: center; */
+  padding: 50px 5px 40px 10px;
+  /* style={{ minHeight:'350px'}} */
+  background-color: white;
+}
+
+.btn {
+  background-color: orangered;
+  color: white;
   
 }
 
+.backButton {
+  background-color: white;
+  color: black;
+  
+}
+.btn-group{
+  text-align: left;
+}
 
+.heading{
+  text-align: center;
+  margin-top: 50px;
+}
 
 .App-logo {
   height: 40vmin;

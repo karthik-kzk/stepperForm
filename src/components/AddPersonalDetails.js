@@ -12,7 +12,11 @@ class AddPersonalDetails extends React.Component {
     };this.handleChange = this.handleChange.bind(this) 
 }
 
-
+    componentDidMount(){
+        const name = (localStorage.getItem('name'))
+        const phone = (localStorage.getItem('phone'))
+        this.setState({name,phone})
+    }
 
     handleChange( e){       
         const value = e.target.value;        
@@ -29,6 +33,8 @@ class AddPersonalDetails extends React.Component {
        } else if(isNaN(this.state.phone)||!this.state.name.phone>=10){
         alert("must a number of 10 digits")
        }else{
+        localStorage.setItem('name',this.state.name)
+        localStorage.setItem('phone',this.state.phone)
        return true
     }}
 
@@ -37,7 +43,8 @@ class AddPersonalDetails extends React.Component {
         <div   >
             <form >
             {/* fullname */}
-            <div class="form-group">                
+            <div class="form-group">   
+                <label >Full Name</label>             
                 <input type="text" class="form-control" placeholder="Full name" required
                 onChange={this.handleChange}
                 value={this.state.name}
@@ -48,6 +55,7 @@ class AddPersonalDetails extends React.Component {
             </div>
             
             {/* Gender */}
+            <label >Gender</label> 
             <select name="Gender" class="custom-select">
                 <option selected>Gender</option>
                 <option value="Male">Male</option>
@@ -61,7 +69,7 @@ class AddPersonalDetails extends React.Component {
             </div>
             {/* Phone No */}
             <div class="form-group">
-                
+                <label >Phone No</label> 
                 <input type="tel" class="form-control" placeholder="Phone No" required
                 onChange={this.handleChange}
                 value={this.state.phone}

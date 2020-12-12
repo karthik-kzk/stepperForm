@@ -19,12 +19,14 @@ function SelectBox() {
 
     return (
         <div class="form-group" style={{marginBottom: '20px', marginTop: '20px'}}>
+            <label >Country</label> 
             <select id="countrySelect" class="custom-select" onChange={onChange}>
                 <option value="" disabled selected>Choose State</option>
                 <option  >IN</option>
                 <option >US</option>
                 <option >CA</option>
-            </select> 
+            </select>
+            <label >State</label>  
             <select  class="custom-select">
                 <option value="" disabled selected>Choose City</option>
                 {country.map((val,i)=>

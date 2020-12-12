@@ -1,0 +1,22 @@
+   <ul class="nav nav-pills nav-fill">
+           <span class="dot">1</span> 
+            <li class={` ${step===0?"nav-item1":"nav-item"}`}>
+              
+            
+              {/* <a className={`nav-link ${step===0 ? "active" : ""}`} href="/#">Personal Details</a> */}
+              <h5>Personal Details</h5>
+            </li>
+            <span class="dot">2</span>
+            <li class={` ${step===1?"nav-item2":"nav-item21"}`}>
+              
+              {/* <a className={`nav-link ${step===1 ? "active" : ""}`} href="/#">Company Details</a> */}
+              <h5>Company Details</h5>
+            </li>
+            <span class="dot">3</span>
+            <li class={` ${step===2?"last-item1":"last-item"}`}>
+            
+            <h5>Submit Otp</h5>
+            {/* <a className={`nav-link ${step===2 ? "active" : ""}`} href="/#">Submit Otp</a> */}
+            </li>
+            
+          </ul>

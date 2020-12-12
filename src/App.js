@@ -4,12 +4,13 @@ import AddCompanyDetails from './components/AddCompanyDetails'
 import Otp from './components/Otp'
 import React,{useState} from 'react'
 import Stepper from './components/Stepper'
+import Test from './components/Test'
 
 
 
 
 
-// const steps = ['AddPersonalDetails', 'AddCompanyDetails', 'Otp'];
+const steps = ['AddPersonalDetails', 'AddCompanyDetails', 'Enter Otp'];
 
 
 function getStepContent(step,formRef) {
@@ -53,24 +54,31 @@ function App() {
   return (
     <div>
       {/* navBar */}
+      
       <Stepper step={activeStep} />  
-   
+      {/* heading */}
+      <div className="heading">
+          <h3>{steps[activeStep]}</h3>
+      </div>
+      
     <div className="App">
       <form >
        {/* page */}
-      <div style={{ minHeight:'350px'}}>      
+      <div >      
       {getStepContent(activeStep,formRef)}
+      
       
       </div>
       {/* button */}
-      <div class="btn-group">
+      <div class="btn-group" style={{width:'100%'}}>
         { activeStep !==0 &&
-        <button type="button" class="btn "onClick={handleBack} >Back</button>
+        <button type="button" class="btn backButton"onClick={handleBack}>Back</button>
         }
-        {(activeStep ===2)? <button type="button" class="btn btn-success"onClick={()=>alert('detail Submitted')}>Submit</button>
-        : <button type="button" class="btn btn-primary"onClick={handleNext}>Next</button>          
+       
+        {(activeStep ===2)? <button type="button" class="btn btn-block"onClick={()=>alert('detail Submitted')}>Next</button>
+        : <button type="button" class="btn btn-block "onClick={handleNext}>Next</button>          
       }    
-      </div>
+       </div>
       </form>
     </div>
     </div>
